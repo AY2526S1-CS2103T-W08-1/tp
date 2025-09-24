@@ -1,5 +1,4 @@
-title: "AB-3"
-theme: minima
+title: "PressPal"
 
 header_pages:
   - UserGuide.md
@@ -8,9 +7,9 @@ header_pages:
 
 markdown: kramdown
 
-repository: "se-edu/addressbook-level3"
+repository: "AY2526S1-CS2103T-W08-1/tp"
 github_icon: "images/github-icon.png"
 
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+- jekyll-remote-theme
