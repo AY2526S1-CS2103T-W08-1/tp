@@ -128,6 +128,26 @@ public class ModelManager implements Model {
         filteredPersons.setPredicate(predicate);
     }
 
+    //=========== Interview ==================================================================================
+
+    @Override
+    public boolean hasInterview(String interview) {
+        requireNonNull(interview);
+        System.out.println("Checking interview: " + interview); // Debug print
+        System.out.println("Current interviews: " + addressBook.getInterviewList()); // Debug print
+        return addressBook.hasInterview(interview);
+    }
+
+    @Override
+    public void addInterview(String interview) {
+        addressBook.addInterview(interview);
+    }
+
+    @Override
+    public void deleteInterview(String interview) {
+        addressBook.removeInterview(interview);
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

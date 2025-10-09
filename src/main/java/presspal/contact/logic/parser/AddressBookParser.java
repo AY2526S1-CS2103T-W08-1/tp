@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import presspal.contact.commons.core.LogsCenter;
 import presspal.contact.logic.commands.AddCommand;
+import presspal.contact.logic.commands.AddInterviewCommand;
 import presspal.contact.logic.commands.ClearCommand;
 import presspal.contact.logic.commands.Command;
 import presspal.contact.logic.commands.DeleteCommand;
@@ -76,6 +77,9 @@ public class AddressBookParser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case AddInterviewCommand.COMMAND_WORD:
+            return new AddInterviewCommandParser().parse(arguments);
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);

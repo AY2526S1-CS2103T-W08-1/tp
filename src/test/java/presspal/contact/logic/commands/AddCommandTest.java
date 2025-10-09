@@ -149,6 +149,21 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasInterview(String interview) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addInterview(String interview) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteInterview(String interview) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Person> getFilteredPersonList() {
             throw new AssertionError("This method should not be called.");
         }
