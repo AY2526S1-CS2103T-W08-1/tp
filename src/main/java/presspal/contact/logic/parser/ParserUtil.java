@@ -10,9 +10,9 @@ import presspal.contact.commons.core.index.Index;
 import presspal.contact.commons.util.StringUtil;
 import presspal.contact.logic.parser.exceptions.ParseException;
 import presspal.contact.model.category.Category;
-import presspal.contact.model.person.Address;
 import presspal.contact.model.person.Email;
 import presspal.contact.model.person.Name;
+import presspal.contact.model.person.Organisation;
 import presspal.contact.model.person.Phone;
 
 /**
@@ -66,18 +66,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
+     * Parses a {@code String organisation} into an {@code Organisation}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code address} is invalid.
+     * @throws ParseException if the given {@code organisation} is invalid.
      */
-    public static Address parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
+    public static Organisation parseOrganisation(String organisation) throws ParseException {
+        requireNonNull(organisation);
+        String trimmedOrganisation = organisation.trim();
+        if (!Organisation.isValidOrganisation(trimmedOrganisation)) {
+            throw new ParseException(Organisation.MESSAGE_CONSTRAINTS);
         }
-        return new Address(trimmedAddress);
+        return new Organisation(trimmedOrganisation);
     }
 
     /**

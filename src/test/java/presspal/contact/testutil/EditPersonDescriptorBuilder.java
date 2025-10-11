@@ -6,9 +6,9 @@ import java.util.stream.Stream;
 
 import presspal.contact.logic.commands.EditCommand.EditPersonDescriptor;
 import presspal.contact.model.category.Category;
-import presspal.contact.model.person.Address;
 import presspal.contact.model.person.Email;
 import presspal.contact.model.person.Name;
+import presspal.contact.model.person.Organisation;
 import presspal.contact.model.person.Person;
 import presspal.contact.model.person.Phone;
 
@@ -35,7 +35,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setName(person.getName());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
-        descriptor.setAddress(person.getAddress());
+        descriptor.setOrganisation(person.getOrganisation());
         descriptor.setCategories(person.getCategories());
     }
 
@@ -64,10 +64,10 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Organisation} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
+    public EditPersonDescriptorBuilder withOrganisation(String organisation) {
+        descriptor.setOrganisation(new Organisation(organisation));
         return this;
     }
 

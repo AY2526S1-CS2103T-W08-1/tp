@@ -1,30 +1,30 @@
 package presspal.contact.logic.parser;
 
 import static presspal.contact.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static presspal.contact.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static presspal.contact.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
 import static presspal.contact.logic.commands.CommandTestUtil.CATEGORY_DESC_FRIEND;
 import static presspal.contact.logic.commands.CommandTestUtil.CATEGORY_DESC_HUSBAND;
 import static presspal.contact.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static presspal.contact.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static presspal.contact.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static presspal.contact.logic.commands.CommandTestUtil.INVALID_CATEGORY_DESC;
 import static presspal.contact.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static presspal.contact.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
+import static presspal.contact.logic.commands.CommandTestUtil.INVALID_ORGANISATION_DESC;
 import static presspal.contact.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
 import static presspal.contact.logic.commands.CommandTestUtil.NAME_DESC_AMY;
+import static presspal.contact.logic.commands.CommandTestUtil.ORGANISATION_DESC_AMY;
+import static presspal.contact.logic.commands.CommandTestUtil.ORGANISATION_DESC_BOB;
 import static presspal.contact.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static presspal.contact.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-import static presspal.contact.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_CATEGORY_FRIEND;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_CATEGORY_HUSBAND;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_NAME_AMY;
+import static presspal.contact.logic.commands.CommandTestUtil.VALID_ORGANISATION_AMY;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static presspal.contact.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_CATEGORY;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static presspal.contact.logic.parser.CliSyntax.PREFIX_ORGANISATION;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_PHONE;
 import static presspal.contact.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static presspal.contact.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -39,9 +39,9 @@ import presspal.contact.logic.Messages;
 import presspal.contact.logic.commands.EditCommand;
 import presspal.contact.logic.commands.EditCommand.EditPersonDescriptor;
 import presspal.contact.model.category.Category;
-import presspal.contact.model.person.Address;
 import presspal.contact.model.person.Email;
 import presspal.contact.model.person.Name;
+import presspal.contact.model.person.Organisation;
 import presspal.contact.model.person.Phone;
 import presspal.contact.testutil.EditPersonDescriptorBuilder;
 
@@ -86,7 +86,8 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS); // invalid name
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
-        assertParseFailure(parser, "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_CONSTRAINTS); // invalid address
+        assertParseFailure(parser, "1" + INVALID_ORGANISATION_DESC,
+                Organisation.MESSAGE_CONSTRAINTS); // invalid organisation
         assertParseFailure(parser, "1" + INVALID_CATEGORY_DESC, Category.MESSAGE_CONSTRAINTS); // invalid tag
 
         // invalid phone followed by valid email
@@ -102,7 +103,7 @@ public class EditCommandParserTest {
                 Category.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_AMY
+        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ORGANISATION_AMY
                 + VALID_PHONE_AMY, Name.MESSAGE_CONSTRAINTS);
     }
 
@@ -110,10 +111,10 @@ public class EditCommandParserTest {
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_PERSON;
         String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + CATEGORY_DESC_HUSBAND
-                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY + CATEGORY_DESC_FRIEND;
+                + EMAIL_DESC_AMY + ORGANISATION_DESC_AMY + NAME_DESC_AMY + CATEGORY_DESC_FRIEND;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
+                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withOrganisation(VALID_ORGANISATION_AMY)
                 .withCategories(VALID_CATEGORY_HUSBAND, VALID_CATEGORY_FRIEND).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
@@ -153,9 +154,9 @@ public class EditCommandParserTest {
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
-        // address
-        userInput = targetIndex.getOneBased() + ADDRESS_DESC_AMY;
-        descriptor = new EditPersonDescriptorBuilder().withAddress(VALID_ADDRESS_AMY).build();
+        // organisation
+        userInput = targetIndex.getOneBased() + ORGANISATION_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withOrganisation(VALID_ORGANISATION_AMY).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
@@ -183,19 +184,19 @@ public class EditCommandParserTest {
         assertParseFailure(parser, userInput, Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE));
 
         // mulltiple valid fields repeated
-        userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY
-                + CATEGORY_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + CATEGORY_DESC_FRIEND
-                + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + CATEGORY_DESC_HUSBAND;
+        userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + ORGANISATION_DESC_AMY + EMAIL_DESC_AMY
+                + CATEGORY_DESC_FRIEND + PHONE_DESC_AMY + ORGANISATION_DESC_AMY + EMAIL_DESC_AMY + CATEGORY_DESC_FRIEND
+                + PHONE_DESC_BOB + ORGANISATION_DESC_BOB + EMAIL_DESC_BOB + CATEGORY_DESC_HUSBAND;
 
         assertParseFailure(parser, userInput,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS));
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ORGANISATION));
 
         // multiple invalid values
-        userInput = targetIndex.getOneBased() + INVALID_PHONE_DESC + INVALID_ADDRESS_DESC + INVALID_EMAIL_DESC
-                + INVALID_PHONE_DESC + INVALID_ADDRESS_DESC + INVALID_EMAIL_DESC;
+        userInput = targetIndex.getOneBased() + INVALID_PHONE_DESC + INVALID_ORGANISATION_DESC + INVALID_EMAIL_DESC
+                + INVALID_PHONE_DESC + INVALID_ORGANISATION_DESC + INVALID_EMAIL_DESC;
 
         assertParseFailure(parser, userInput,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS));
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ORGANISATION));
     }
 
     @Test

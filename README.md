@@ -11,7 +11,7 @@
 - [Acknowledge Source](#acknowledge-source)
 
 ## About
-PressPal is designed to streamline contact and interview management for breaking news reporters. Traditional address books and note-taking tools are not optimized for the high-speed, high-pressure environment of news reporting, where reporters must manage hundreds of contacts across multiple sources (phones, emails, notebooks).
+PressPal is designed to streamline contact and interview management for breaking news reporters. Traditional organisation books and note-taking tools are not optimized for the high-speed, high-pressure environment of news reporting, where reporters must manage hundreds of contacts across multiple sources (phones, emails, notebooks).
 
 The goal of PressPal is to:
 - Provide reporters with a single command-driven system for organizing and retrieving contacts quickly.

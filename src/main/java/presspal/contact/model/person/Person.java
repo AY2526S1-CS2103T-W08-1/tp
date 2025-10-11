@@ -11,7 +11,7 @@ import presspal.contact.commons.util.ToStringBuilder;
 import presspal.contact.model.category.Category;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Person in the organisation book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -22,18 +22,18 @@ public class Person {
     private final Email email;
 
     // Data fields
-    private final Address address;
+    private final Organisation organisation;
     private final Set<Category> categories = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Category> categories) {
-        requireAllNonNull(name, phone, email, address, categories);
+    public Person(Name name, Phone phone, Email email, Organisation organisation, Set<Category> categories) {
+        requireAllNonNull(name, phone, email, organisation, categories);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.organisation = organisation;
         this.categories.addAll(categories);
     }
 
@@ -49,8 +49,8 @@ public class Person {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
+    public Organisation getOrganisation() {
+        return organisation;
     }
 
     /**
@@ -93,14 +93,14 @@ public class Person {
         return name.equals(otherPerson.name)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
-                && address.equals(otherPerson.address)
+                && organisation.equals(otherPerson.organisation)
                 && categories.equals(otherPerson.categories);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, categories);
+        return Objects.hash(name, phone, email, organisation, categories);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class Person {
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
-                .add("address", address)
+                .add("organisation", organisation)
                 .add("categories", categories)
                 .toString();
     }

@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import presspal.contact.commons.exceptions.IllegalValueException;
 import presspal.contact.model.category.Category;
-import presspal.contact.model.person.Address;
 import presspal.contact.model.person.Email;
 import presspal.contact.model.person.Name;
+import presspal.contact.model.person.Organisation;
 import presspal.contact.model.person.Person;
 import presspal.contact.model.person.Phone;
 
@@ -27,7 +27,7 @@ class JsonAdaptedPerson {
     private final String name;
     private final String phone;
     private final String email;
-    private final String address;
+    private final String organisation;
     private final List<JsonAdaptedCategory> categories = new ArrayList<>();
 
     /**
@@ -35,12 +35,12 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
+            @JsonProperty("email") String email, @JsonProperty("organisation") String organisation,
             @JsonProperty("categories") List<JsonAdaptedCategory> categories) {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.organisation = organisation;
         if (categories != null) {
             this.categories.addAll(categories);
         }
@@ -53,7 +53,7 @@ class JsonAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        address = source.getAddress().value;
+        organisation = source.getOrganisation().value;
         categories.addAll(source.getCategories().stream()
                 .map(JsonAdaptedCategory::new)
                 .collect(Collectors.toList()));
@@ -94,16 +94,17 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+        if (organisation == null) {
+            throw new IllegalValueException(String
+                    .format(MISSING_FIELD_MESSAGE_FORMAT, Organisation.class.getSimpleName()));
         }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        if (!Organisation.isValidOrganisation(organisation)) {
+            throw new IllegalValueException(Organisation.MESSAGE_CONSTRAINTS);
         }
-        final Address modelAddress = new Address(address);
+        final Organisation modelOrganisation = new Organisation(organisation);
 
         final Set<Category> modelCategories = new HashSet<>(personCategories);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelCategories);
+        return new Person(modelName, modelPhone, modelEmail, modelOrganisation, modelCategories);
     }
 
 }

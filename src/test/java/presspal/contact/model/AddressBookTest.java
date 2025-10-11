@@ -3,8 +3,8 @@ package presspal.contact.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static presspal.contact.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static presspal.contact.logic.commands.CommandTestUtil.VALID_CATEGORY_HUSBAND;
+import static presspal.contact.logic.commands.CommandTestUtil.VALID_ORGANISATION_BOB;
 import static presspal.contact.testutil.Assert.assertThrows;
 import static presspal.contact.testutil.TypicalPersons.ALICE;
 import static presspal.contact.testutil.TypicalPersons.getTypicalAddressBook;
@@ -48,7 +48,7 @@ public class AddressBookTest {
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
         // Two persons with the same identity fields
         Person editedAlice = new PersonBuilder(ALICE)
-                .withAddress(VALID_ADDRESS_BOB)
+                .withOrganisation(VALID_ORGANISATION_BOB)
                 .withCategories(VALID_CATEGORY_HUSBAND)
                 .build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
@@ -77,7 +77,7 @@ public class AddressBookTest {
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE)
-                .withAddress(VALID_ADDRESS_BOB)
+                .withOrganisation(VALID_ORGANISATION_BOB)
                 .withCategories(VALID_CATEGORY_HUSBAND)
                 .build();
         assertTrue(addressBook.hasPerson(editedAlice));

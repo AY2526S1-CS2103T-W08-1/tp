@@ -5,7 +5,7 @@ title: John Doe's Project Portfolio Page
 
 ### Project: PressPal
 
-PressPal is a desktop address book application used for breaking news reporters using Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about TBC kLoC.
+PressPal is a desktop organisation book application used for breaking news reporters using Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about TBC kLoC.
 
 Given below are my contributions to the project.
 
