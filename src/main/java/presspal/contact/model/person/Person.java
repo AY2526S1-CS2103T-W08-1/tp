@@ -141,13 +141,13 @@ public class Person {
 
     @Override
     public String toString() {
+        // to add interviews later in v1.4 & update test cases
         return new ToStringBuilder(this)
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
                 .add("organisation", organisation)
                 .add("categories", categories)
-                .add("interviews", interviews)
                 .toString();
     }
 
