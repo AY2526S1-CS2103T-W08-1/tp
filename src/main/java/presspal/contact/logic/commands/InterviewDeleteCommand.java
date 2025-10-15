@@ -5,11 +5,14 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import presspal.contact.commons.core.index.Index;
+import presspal.contact.logic.commands.exceptions.CommandException;
 import presspal.contact.model.Model;
 import presspal.contact.model.interview.Interview;
-import presspal.contact.logic.commands.exceptions.CommandException;
 import presspal.contact.model.person.Person;
 
+/**
+ * Deletes an interview from a contact identified using it's displayed index from the contact book.
+ */
 public class InterviewDeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "interview delete";
@@ -26,6 +29,10 @@ public class InterviewDeleteCommand extends Command {
     private final Index personIndex;
     private final Index interviewIndex;
 
+    /**
+     * @param personIndex of the person in the filtered person list to edit
+     * @param interviewIndex of the interview in the person's interview list to delete
+     */
     public InterviewDeleteCommand(Index personIndex, Index interviewIndex) {
         this.personIndex = personIndex;
         this.interviewIndex = interviewIndex;
