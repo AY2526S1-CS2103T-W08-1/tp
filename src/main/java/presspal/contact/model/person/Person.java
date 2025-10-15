@@ -2,8 +2,10 @@ package presspal.contact.model.person;
 
 import static presspal.contact.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -73,13 +75,8 @@ public class Person {
         return Collections.unmodifiableSet(categories);
     }
 
-    public Interview getInterviews(Interview interview) {
-        for (Interview i : interviews.getInterviews()) {
-            if (i.equals(interview)) {
-                return i;
-            }
-        }
-        return null;
+    public List<Interview> getInterviews() {
+        return interviews.getInterviews();
     }
 
     /**
