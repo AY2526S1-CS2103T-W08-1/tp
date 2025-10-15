@@ -30,14 +30,23 @@ public class Person {
     /**
      * Every field other than interviews must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Organisation organisation, Set<Category> categories, Interviews interviews) {
-        requireAllNonNull(name, phone, email, organisation, categories);
+    public Person(Name name, Phone phone, Email email,
+                  Organisation organisation, Set<Category> categories, Interviews interviews) {
+        requireAllNonNull(name, phone, email, organisation, categories, interviews);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.organisation = organisation;
         this.categories.addAll(categories);
         this.interviews = interviews;
+    }
+
+    /**
+     * Kept temporarily for backwards compatibility. New code should use the constructor.
+     */
+    public Person(Name name, Phone phone, Email email,
+                  Organisation organisation, Set<Category> categories) {
+        this(name, phone, email, organisation, categories, new Interviews(new ArrayList<>()));
     }
 
     public Name getName() {
@@ -62,6 +71,15 @@ public class Person {
      */
     public Set<Category> getCategories() {
         return Collections.unmodifiableSet(categories);
+    }
+
+    public Interview getInterviews(Interview interview) {
+        for (Interview i : interviews.getInterviews()) {
+            if (i.equals(interview)) {
+                return i;
+            }
+        }
+        return null;
     }
 
     /**
@@ -116,15 +134,6 @@ public class Person {
         Interviews updated = new Interviews(new java.util.ArrayList<>(interviews.getInterviews()));
         updated.add(interview);
         return new Person(name, phone, email, organisation, categories, updated);
-    }
-
-    public Interview getInterviews(Interview interview) {
-        for (Interview i : interviews.getInterviews()) {
-            if (i.equals(interview)) {
-                return i;
-            }
-        }
-        return null;
     }
 
     @Override
