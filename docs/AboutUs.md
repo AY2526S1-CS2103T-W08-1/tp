@@ -22,7 +22,9 @@ You can reach any one of us at the email:
 [[portfolio](team/jbyoonn.md)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: 
+  * GitHub Issue and Project Board Management, Release Management, Documentation
+  * Storage Management
 
 ### Jessie Chin
 

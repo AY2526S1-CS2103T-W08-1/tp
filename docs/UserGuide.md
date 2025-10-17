@@ -3,10 +3,22 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+## Table of Contents
+- [About](#about)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [FAQ](#faq)
+- [Known Issues](#known-issues)
+- [Commands](#command-summary)
 
-* Table of Contents
-{:toc}
+## About
+
+PressPal is designed to streamline contact and interview management for breaking news reporters. Traditional address books and note-taking tools are not optimized for the high-speed, high-pressure environment of news reporting, where reporters must manage hundreds of contacts across multiple sources (phones, emails, notebooks).
+The goal of PressPal is to:
+- Provide reporters with a single command-driven system for organizing and retrieving contacts quickly.
+- Enable fast entry and retrieval of context (interview history, organization, role, notes) while working on multiple stories simultaneously.
+- Support the entire lifecycle of a contact — from initial outreach, to active follow-up, to archiving once a story concludes.
+  Ultimately, PressPal aims to reduce cognitive load for reporters, allowing them to focus on storytelling while ensuring no lead, contact, or follow-up is lost.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -15,11 +27,11 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 1. Ensure you have Java `17` or above installed in your Computer.<br>
    **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-1. Download the latest `.jar` file from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `.jar` file from [here](https://github.com/AY2526S1-CS2103T-W08-1/tp/releases/tag/v1.3).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your ContactBook.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar contactbook.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar presspal.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -28,7 +40,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
    * `list` : Lists all contacts.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Contact Book.
+   * `add n/John Doe p/98765432 e/johnd@example.com r/Student o/NUS c/friends c/owesMoney` : Adds a contact named `John Doe` to the Contact Book.
 
    * `delete 3` : Deletes the 3rd contact shown in the current list.
 
@@ -77,15 +89,15 @@ Format: `help`
 
 Adds a person to the contact book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL o/ORGANISATION [c/CATEGORY]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL o/ORGANISATION r/ROLE [c/CATEGORY]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of categories (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com o/ST, block 123, #01-01`
-* `add n/Betsy Crowe c/friend e/betsycrowe@example.com o/Reuters p/1234567 c/criminal`
+* `add n/John Doe p/98765432 e/johnd@example.com o/NUS r/Student c/friends c/owesMoney`
+* `add n/Betsy Crowe p/12345678 e/betsycrowe@example.com o/Reuters r/Reporter`
 
 ### Listing all persons : `list`
 
@@ -97,7 +109,7 @@ Format: `list`
 
 Edits an existing person in the contact book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [o/ORGANISATION] [c/CATEGORY]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [o/ORGANISATION] [r/ROLE] [c/CATEGORY]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -125,8 +137,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* `find bernice charlotte` returns `Bernice Yu`, `Charlotte Oliveiro`<br>
+  ![result for 'find bernice charlotte'](images/findBerniceCharlotteResult.png)
 
 ### Deleting a person : `delete`
 
@@ -141,6 +153,44 @@ Format: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the contact book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+
+### Adding an interview to a contact : `addInterview`
+
+Adds an interview to a contact in the contact book.
+
+Format: `addInterview i/INDEX h/HEADER d/DATE t/TIME l/LOCATION`
+
+* Adds an interview to the contact at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* The `DATE` must be in the format `YYYY-MM-DD`. e.g. `2025-10-10`
+* The `TIME` must be in the format `HH:MM`. e.g. `14:30`
+* The `LOCATION` can be any string of characters.
+* The `HEADER` can be any string of characters.
+
+Examples:
+* `addInterview i/1 h/Interview with ABC Corp d/2024-10-10 t/14:00 l/123, Business St, #02-25` adds an interview with header `Interview with ABC Corp`, date `2024-10-10`, time `14:00` and location `123, Business St, #02-25` to the 1st contact in the contact book.
+
+### Deleting an interview from a contact : `deleteInterview`
+
+Deletes an interview from a contact in the contact book.
+
+Format: `deleteInterview PERSON_INDEX INTERVIEW_INDEX`
+
+* Deletes the interview at the specified `INTERVIEW_INDEX` from the contact at the specified `PERSON_INDEX`. The indices refer to the index numbers shown in the displayed person list and interview list respectively. The indices **must be positive integers** 1, 2, 3, …​
+
+Examples:
+* `deleteInterview 1 2` deletes the 2nd interview from the 1st contact in the contact book.
+
+### Listing all interviews of a contact : `listInterview`
+
+Lists all interviews of a contact in the contact book.
+
+Format: `listInterview i/INDEX`
+
+* Lists all interviews of the contact at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* If the contact has no interviews, a message indicating so will be shown instead.
+
+![empty interview](images/emptyInterviewExample.png)
+![filled interview](images/filledInterviewExample.png)
 
 ### Clearing all entries : `clear`
 
@@ -167,10 +217,6 @@ If your changes to the data file makes its format invalid, ContactBook will disc
 Furthermore, certain edits can cause the ContactBook to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -191,10 +237,14 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL o/ORGANISATION [c/CATEGORY]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 c/friend c/colleague`
+**Add** | `add n/NAME p/PHONE e/EMAIL o/ORGANISATION r/ROLE [c/CATEGORY]…​` <br> e.g., `add n/John Doe p/98765432 e/johnd@example.com o/NUS r/Student c/friends c/owesMoney`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [o/ORGANISATION] [c/CATEGORY]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [o/ORGANISATION] [r/ROLE] [c/CATEGORY]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
+**AddInterview** | `addInterview i/INDEX h/HEADER d/DATE t/TIME l/LOCATION` <br> e.g., `addInterview i/1 h/Interview with ABC Corp d/2024-10-10 t/14:00 l/123, Business St, #02-25`
+**DeleteInterview** | `deleteInterview PERSON_INDEX INTERVIEW_INDEX` <br> e.g., `deleteInterview 1 2`
+**ListInterview** | `listInterview i/INDEX` <br> e.g., `listInterview i/1`
+**Exit** | `exit
 **Help** | `help`

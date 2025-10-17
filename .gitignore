@@ -1,6 +1,7 @@
 # Gradle build files
 /.gradle/
-/build/
+/build/*
+!/build/resources/main/images/presspal_32.png
 src/main/resources/docs/
 
 # IDEA files
