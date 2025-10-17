@@ -9,20 +9,22 @@ PressPal is a desktop address book application used for breaking news reporters 
 
 Given below are my contributions to the project.
 
-**BELOW IS TBC**
-* **New Feature**: Added the ability to undo/redo previous commands.
-    * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-    * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-    * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-    * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
-
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
-
 * **Code contributed**: [RepoSense link]()
+  * **Lines of code contributed**: TBC LoC (TBC% of total codebase)
+  * **Refactoring**:
+    * Address class to Organisation class
+    * Package seedu.address to presspal.contact
 
 * **Project management**:
-    * ALL ARE TBC
-    * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+    * Improvements to planning:
+      * Using Google Docs for collaborative documentation and planning
+      * Suggested weekly team leaders to take charge of weekly meetings and task delegation
+      * Suggested the use of Timeful, a smart calendar app, to help with scheduling meetings and finding available time slots where team members are free to work on the project
+    * Improvements to tracking:
+      * Suggested the use of GitHub sub-issues to increase visibility of dependent tasks
+    * Ensuring code style consistency:
+      * Suggest changes to PRs to ensure code style consistency across the codebase
+      * Suggested the use of Checkstyle within the IDE to automatically check for code style violations while coding
 
 * **Enhancements to existing features**:
     * ALL ARE TBC
@@ -37,7 +39,7 @@ Given below are my contributions to the project.
 
 * **Community**:
     * ALL ARE TBC
-    * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
+    * PRs reviewed (with non-trivial review comments): [\#78](), [\#31](), [\#84]()
     * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
     * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
     * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
