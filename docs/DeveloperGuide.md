@@ -707,6 +707,32 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Editing a contact
+
+**Command:** `edit`
+
+1. Editing an existing contact (e.g., the first contact).
+
+Editing an existing contact (e.g., the first contact).
+
+* **Prerequisite**: Ensure at least one patient exists in the list. If not, add a patient using the `add` command.
+
+* **Test case**: `edit 1 n/John Doe`
+* **Expected**: The first contact's name is changed to "John Doe" and phone to "98765432". Details of the edited contact shown in the status message. Timestamp in the status bar is updated.
+
+* **Test case (no patient exists)**: `edit 1 n/John Doe`
+* **Expected**: No contact is edited. Error details shown in the status message. 
+
+2. Editing an invalid patient index
+* **Test case**: `edit 0 n/John Doe`
+* **Expected**: No contact is edited. Error details shown in the status message.
+
+3. Invalid edit command
+* **Test case**: `edit 1`
+* **Expected**: No contact is edited. Error details shown in the status message.
+
+
+
 ### Deleting a person
 
 1. Deleting a person while all persons are being shown
