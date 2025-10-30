@@ -117,6 +117,7 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
+        "user-guide": "User Guide",
         "about": "About",
         "table-of-contents": "Table of Contents",
         "user-profiles": "User Profiles",
@@ -130,7 +131,8 @@
         "viewing-help-help": "Viewing help : help",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
-        "adding-a-person-add": "Adding a person: add",
+        "saving-the-data": "Saving the data",
+        "adding-a-person-add": "Adding a person : add",
         "deleting-a-person-delete": "Deleting a person : delete",
         "editing-a-person-edit": "Editing a person : edit",
         "listing-all-persons-list": "Listing all persons : list",
@@ -141,13 +143,13 @@
         "display-the-upcoming-interview-nextinterview": "Display the upcoming interview : nextInterview",
         "add-category-s-to-a-person-addcat": "Add category(s) to a person : addCat",
         "delete-category-s-from-a-person-deletecat": "Delete category(s) from a person : deleteCat",
-        "saving-the-data": "Saving the data",
         "frequently-asked-questions-faq": "Frequently Asked Questions (FAQ)",
-        "common-problems-and-fixes": "Common Problems and Fixes",
-        "troubleshooting": "Troubleshooting",
-        "features-2": "Features",
+        "faq-general-qa": "General Q&A",
+        "faq-common-problems": "Common Problems and Fixes",
+        "faq-troubleshooting": "Troubleshooting",
+        "faq-feature-rationale": "Feature Rationale",
         "future-iteration-plans": "Future Iteration Plans",
-        "command-summary": "Command summary"
+        "command-summary": "Command Summary"
       },
       "headingKeywords": {}
     },
