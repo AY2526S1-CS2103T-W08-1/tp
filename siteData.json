@@ -69,11 +69,17 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
-        "add-category-s-to-a-person": "Add category(s) to a person",
-        "delete-category-s-from-a-person": "Delete category(s) from a person",
-        "display-the-upcoming-interview": "Display the upcoming interview",
+        "adding-a-person": "Adding a person",
+        "editing-a-person": "Editing a person",
+        "deleting-a-person": "Deleting a person",
+        "listing-all-persons": "Listing All Persons",
+        "locating-persons-by-name-organisation-role-or-categories": "Locating Persons by Name, Organisation, Role, or Categories",
+        "add-interview-s-to-a-person": "Add interview(s) to a person",
+        "delete-interview-s-to-a-person": "Delete interview(s) to a person",
         "display-the-list-of-interview-s-for-a-person": "Display the list of interview(s) for a person",
-        "adding-a-person": "Adding a person"
+        "display-the-upcoming-interview": "Display the upcoming interview",
+        "add-category-s-to-a-person": "Add category(s) to a person",
+        "delete-category-s-from-a-person": "Delete category(s) from a person"
       },
       "headingKeywords": {}
     },
