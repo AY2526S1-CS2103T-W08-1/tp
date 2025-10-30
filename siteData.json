@@ -73,6 +73,8 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
+        "add-category-s-to-a-person": "Add category(s) to a person",
+        "delete-category-s-from-a-person": "Delete category(s) from a person",
         "saving-data": "Saving data"
       },
       "headingKeywords": {}
