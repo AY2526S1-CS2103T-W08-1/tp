@@ -3,11 +3,11 @@ package presspal.contact.logic.parser;
 import static presspal.contact.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_INDEX;
 
+import java.util.stream.Stream;
+
 import presspal.contact.commons.core.index.Index;
 import presspal.contact.logic.commands.DeleteCommand;
 import presspal.contact.logic.parser.exceptions.ParseException;
-
-import java.util.stream.Stream;
 
 /**
  * Parses input arguments and creates a new DeleteCommand object

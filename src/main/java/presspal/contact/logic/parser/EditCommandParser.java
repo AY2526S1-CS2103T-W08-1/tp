@@ -9,12 +9,12 @@ import static presspal.contact.logic.parser.CliSyntax.PREFIX_ORGANISATION;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_PHONE;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_ROLE;
 
+import java.util.stream.Stream;
+
 import presspal.contact.commons.core.index.Index;
 import presspal.contact.logic.commands.EditCommand;
 import presspal.contact.logic.commands.EditCommand.EditPersonDescriptor;
 import presspal.contact.logic.parser.exceptions.ParseException;
-
-import java.util.stream.Stream;
 
 /**
  * Parses input arguments and creates a new EditCommand object
