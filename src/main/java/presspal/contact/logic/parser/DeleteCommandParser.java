@@ -1,6 +1,7 @@
 package presspal.contact.logic.parser;
 
 import static presspal.contact.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static presspal.contact.logic.parser.CliSyntax.PREFIX_INDEX;
 
 import presspal.contact.commons.core.index.Index;
 import presspal.contact.logic.commands.DeleteCommand;
@@ -17,8 +18,11 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeleteCommand parse(String args) throws ParseException {
+        ArgumentMultimap argMultimap =
+                ArgumentTokenizer.tokenize(args, PREFIX_INDEX);
+        Index index;
         try {
-            Index index = ParserUtil.parseIndex(args);
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
             return new DeleteCommand(index);
         } catch (ParseException pe) {
             throw new ParseException(

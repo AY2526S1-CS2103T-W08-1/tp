@@ -38,7 +38,7 @@ public class AddInterviewCommandParser implements Parser<AddInterviewCommand> {
                 PREFIX_CATEGORY, PREFIX_EMAIL, PREFIX_NAME, PREFIX_ORGANISATION, PREFIX_PHONE, PREFIX_ROLE);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_INDEX, PREFIX_HEADER, PREFIX_DATE, PREFIX_TIME, PREFIX_LOCATION)
-                || !argMultimap.getPreamble().isEmpty()
+                || argMultimap.getPreamble().isEmpty()
                 || isPrefixPresent(argMultimap,
                 PREFIX_CATEGORY, PREFIX_EMAIL, PREFIX_NAME, PREFIX_ORGANISATION, PREFIX_PHONE, PREFIX_ROLE)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,

@@ -3,6 +3,7 @@ package presspal.contact.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static presspal.contact.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static presspal.contact.logic.parser.CliSyntax.PREFIX_INDEX;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_NAME;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_ORGANISATION;
 import static presspal.contact.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -26,7 +27,7 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE,
+                ArgumentTokenizer.tokenize(args, PREFIX_INDEX, PREFIX_NAME, PREFIX_PHONE,
                         PREFIX_EMAIL, PREFIX_ORGANISATION, PREFIX_ROLE);
 
         Index index;
