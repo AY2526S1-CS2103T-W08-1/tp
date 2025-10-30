@@ -1,0 +1,4 @@
+
+    const renderFn = new Function("const { createElementVNode: _createElementVNode, createTextVNode: _createTextVNode, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"code\", { class: \"hljs inline no-lang\" }, \"config.json\", -1 /* HOISTED */)\n\nreturn function render(_ctx, _cache) {\n  return (_openBlock(), _createElementBlock(\"p\", null, [\n    _createTextVNode(\"Certain properties of the application can be controlled (e.g user preferences file\\nlocation, logging level) through the configuration file (default: \"),\n    _hoisted_1,\n    _createTextVNode(\").\")\n  ]))\n}");
+    var render = renderFn();
+  

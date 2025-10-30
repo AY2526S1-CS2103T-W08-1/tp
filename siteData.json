@@ -1,0 +1,195 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "AboutUs.md",
+      "title": "About Us",
+      "headings": {
+        "project-team": "Project team",
+        "yoon-jia-bao": "Yoon Jia Bao",
+        "jessie-chin": "Jessie Chin",
+        "lucas-ng": "Lucas Ng",
+        "kieron-oei": "Kieron Oei",
+        "zach-chong": "Zach Chong"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Configuration.md",
+      "title": "Configuration guide",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "DevOps.md",
+      "title": "DevOps guide",
+      "headings": {
+        "build-automation": "Build automation",
+        "continuous-integration-ci": "Continuous integration (CI)",
+        "code-coverage": "Code coverage",
+        "repository-wide-checks": "Repository-wide checks",
+        "making-a-release": "Making a release"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "DeveloperGuide.md",
+      "title": "Developer Guide",
+      "headings": {
+        "presspal-developer-guide": "PressPal Developer Guide",
+        "acknowledgements": "Acknowledgements",
+        "setting-up-getting-started": "Setting up, getting started",
+        "design": "Design",
+        "architecture": "Architecture",
+        "ui-component": "UI component",
+        "logic-component": "Logic component",
+        "model-component": "Model component",
+        "storage-component": "Storage component",
+        "common-classes": "Common classes",
+        "implementation": "Implementation",
+        "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
+        "proposed-data-archiving": "[Proposed] Data archiving",
+        "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
+        "appendix-requirements": "Appendix: Requirements",
+        "product-scope": "Product scope",
+        "user-stories": "User stories",
+        "use-cases": "Use cases",
+        "uc1-add-a-contact": "UC1 – Add a contact",
+        "uc2-create-a-category": "UC2 – Create a category",
+        "uc3-add-contact-to-category": "UC3 – Add contact to category",
+        "uc4-add-interview-to-contact": "UC4 – Add interview to contact",
+        "uc5-delete-a-contact": "UC5 – Delete a contact",
+        "uc6-remove-contact-from-category": "UC6 – Remove contact from category",
+        "uc7-delete-interview-from-contact": "UC7 – Delete interview from contact",
+        "uc8-search-contacts": "UC8 – Search contacts",
+        "non-functional-requirements": "Non-Functional Requirements",
+        "glossary": "Glossary",
+        "a": "A",
+        "c": "C",
+        "d": "D",
+        "m": "M",
+        "r": "R",
+        "o": "O",
+        "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
+        "launch-and-shutdown": "Launch and shutdown",
+        "deleting-a-person": "Deleting a person",
+        "saving-data": "Saving data"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Documentation.md",
+      "title": "Documentation guide",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "Logging.md",
+      "title": "Logging guide",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "SettingUp.md",
+      "title": "Setting up and getting started",
+      "headings": {
+        "setting-up-the-project-in-your-computer": "Setting up the project in your computer",
+        "before-writing-code": "Before writing code"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "Testing.md",
+      "title": "Testing guide",
+      "headings": {
+        "running-tests": "Running tests",
+        "types-of-tests": "Types of tests"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "UserGuide.md",
+      "title": "User Guide",
+      "headings": {
+        "table-of-contents": "Table of Contents",
+        "about": "About",
+        "user-profiles": "User Profiles",
+        "system-requirements": "System Requirements",
+        "quick-start": "Quick start",
+        "features": "Features",
+        "general-commands": "GENERAL COMMANDS",
+        "viewing-help-help": "Viewing help : help",
+        "clearing-all-entries-clear": "Clearing all entries : clear",
+        "exiting-the-program-exit": "Exiting the program : exit",
+        "contact-management": "CONTACT MANAGEMENT",
+        "adding-a-person-add": "Adding a person: add",
+        "editing-a-person-edit": "Editing a person : edit",
+        "deleting-a-person-delete": "Deleting a person : delete",
+        "listing-all-persons-list": "Listing all persons : list",
+        "locating-persons-by-name-organisation-role-or-categories-find": "Locating persons by name, organisation, role, or categories : find",
+        "interview-management": "INTERVIEW MANAGEMENT",
+        "adding-an-interview-to-a-contact-addinterview": "Adding an interview to a contact : addInterview",
+        "deleting-an-interview-from-a-contact-deleteinterview": "Deleting an interview from a contact : deleteInterview",
+        "listing-all-interviews-of-a-contact-listinterview": "Listing all interviews of a contact : listInterview",
+        "display-the-upcoming-interview-nextinterview": "Display the upcoming interview : nextInterview",
+        "category-management": "CATEGORY MANAGEMENT",
+        "add-category-s-to-a-person-addcat": "Add category(s) to a person : addCat",
+        "delete-category-s-from-a-person-deletecat": "Delete category(s) from a person : deleteCat",
+        "saving-the-data": "Saving the data",
+        "editing-the-data-file": "Editing the data file",
+        "faq": "FAQ",
+        "troubleshooting": "Troubleshooting",
+        "features-2": "Features",
+        "known-issues": "Known issues",
+        "command-summary": "Command summary"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "index.md",
+      "title": "PressPal",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/jbyoonn.md",
+      "title": "Jia Bao's Project Portfolio Page",
+      "headings": {
+        "project-presspal": "Project: PressPal"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/jcc-kh.md",
+      "title": "Jessie's Project Portfolio Page",
+      "headings": {
+        "project-presspal": "Project: PressPal"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/kieronoei.md",
+      "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-presspal": "Project: PressPal"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/lucasn24.md",
+      "title": "Lucas's Project Portfolio Page",
+      "headings": {
+        "project-presspal": "Project: PressPal"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/zachchong.md",
+      "title": "Zach Chong's Project Portfolio Page",
+      "headings": {
+        "project-presspal": "Project: PressPal"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}

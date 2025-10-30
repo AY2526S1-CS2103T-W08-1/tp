@@ -1,0 +1,70 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":ContactBookParser" as ContactBookParser LOGIC_COLOR
+participant ":DeleteCommandParser" as DeleteCommandParser LOGIC_COLOR
+participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("delete 1")
+activate LogicManager
+
+LogicManager -> ContactBookParser : parseCommand("delete 1")
+activate ContactBookParser
+
+create DeleteCommandParser
+ContactBookParser -> DeleteCommandParser
+activate DeleteCommandParser
+
+DeleteCommandParser --> ContactBookParser
+deactivate DeleteCommandParser
+
+ContactBookParser -> DeleteCommandParser : parse("1")
+activate DeleteCommandParser
+
+create DeleteCommand
+DeleteCommandParser -> DeleteCommand
+activate DeleteCommand
+
+DeleteCommand --> DeleteCommandParser :
+deactivate DeleteCommand
+
+DeleteCommandParser --> ContactBookParser : d
+deactivate DeleteCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+DeleteCommandParser -[hidden]-> ContactBookParser
+destroy DeleteCommandParser
+
+ContactBookParser --> LogicManager : d
+deactivate ContactBookParser
+
+LogicManager -> DeleteCommand : execute(m)
+activate DeleteCommand
+
+DeleteCommand -> Model : deletePerson(1)
+activate Model
+
+Model --> DeleteCommand
+deactivate Model
+
+create CommandResult
+DeleteCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> DeleteCommand
+deactivate CommandResult
+
+DeleteCommand --> LogicManager : r
+deactivate DeleteCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
