@@ -70,7 +70,10 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "add-category-s-to-a-person": "Add category(s) to a person",
-        "delete-category-s-from-a-person": "Delete category(s) from a person"
+        "delete-category-s-from-a-person": "Delete category(s) from a person",
+        "display-the-upcoming-interview": "Display the upcoming interview",
+        "display-the-list-of-interview-s-for-a-person": "Display the list of interview(s) for a person",
+        "adding-a-person": "Adding a person"
       },
       "headingKeywords": {}
     },
