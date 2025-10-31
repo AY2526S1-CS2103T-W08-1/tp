@@ -28,7 +28,7 @@ h1 {
 
 ![PressPalAbout](images/PressPalAbout.png)
 
-# **PressPal Developer Guide**
+# **Developer Guide**
 
 --------------------------------------------------------------------------------------------------------------------
 
